@@ -76,32 +76,23 @@ function init() {
 
             total_width += fig.w - Math.random() * 15;
             list.push(fig);
-            //initialX.push(Math.random() * WIDTH);
-            //initialY.push(HEIGHT - Math.random() * HEIGHT / 2);
-            //velocity.push(.9 + Math.random() * .2);
-            //amplitude.push(10 + Math.random() * 10);
-            //phase.push(Math.random());
-            //frequency.push(.4 + Math.random() * .8);
         }
-        prevHeight -= FIGURE_HEIGHT / 2.5 * scaleCoef;// * scaleCoef/1.62;
+        prevHeight -= FIGURE_HEIGHT / 2.5 * scaleCoef;
         figures.push(list);
         layerWidth.push(total_width);
         VELOCITY.push(VELOCITY[l] / 1.5);
     }
 };
 
-var draw = function() {
+var drawBg = function() {
     ctx.fillStyle = '#666';
     ctx.fillRect(0, 0, WIDTH, HEIGHT);
-
-    ctx.fillStyle = '#aaa';
-//    drawEllipse(elliX, elliY, 200, 120);
 }
 
 init();
 
 function update(sign) {
-    draw();
+    drawBg();
 
     t += .08;
 
@@ -123,10 +114,6 @@ function update(sign) {
     ctx.fillStyle = '#fff';
     ctx.fillRect(100, HEIGHT  - (1 + Math.sin(t * 3)) * 20- 100, 50, 80);
 };
-/*
-setInterval(function() {
-}, 20);
-*/
 
 var LEFT_ARROW_KEY = 37;
 var RIGHT_ARROW_KEY = 39;
